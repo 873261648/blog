@@ -11,7 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "nodemon": "^1.19.2",
-    "cross-env": "^6.0.0"
+    "cross-env": "^6.0.0",
+    "mysql": "^2.17.1",
+    "nodemon": "^1.19.2"
   }
 }

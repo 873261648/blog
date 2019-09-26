@@ -5,7 +5,7 @@ const querystring = require('querystring'),
 const getPostData = (req) => {
     let postData = '';
     return new Promise((resolve) => {
-        if(req.method!=="POST"){
+        if (req.method !== "POST") {
             resolve({});
             return;
         }
@@ -13,7 +13,7 @@ const getPostData = (req) => {
             postData += chunk.toString()
         });
         req.on('end', () => {
-            if(!postData){
+            if (!postData) {
                 resolve({});
                 return;
             }
@@ -38,7 +38,10 @@ const app = (req, res) => {
         }
         let blogData = handlerBlogRouter(req, res);
         if (blogData) {
-            res.end(JSON.stringify(blogData))
+            blogData.then(result => {
+                res.end(JSON.stringify(result))
+            });
+            return;
         }
         res.end(JSON.stringify({message: 404}))
     });
