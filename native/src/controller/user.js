@@ -1,12 +1,11 @@
-const {SuccessModel, ErrorModel} = require('../model/resModel');
+const exec = require('../db/mysql');
 
-const login = (data = {}) => {
-    console.log(data);
-    if (data.userName === 'sucheon' && data.password === 'sucheon') {
-        return new SuccessModel('登录成功');
-    } else {
-        return new ErrorModel('用户名或密码错误');
-    }
+const login = ({userName, password}) => {
+    let sql = `SELECT username,realname FROM users WHERE username='${userName}' and password='${password}'`;
+    console.log(sql)
+    return exec(sql).then(res => {
+        return res[0]
+    })
 };
 module.exports = {
     login

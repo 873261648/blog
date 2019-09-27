@@ -4,25 +4,22 @@ let exec = require('../db/mysql');
 const getList = (author, keyword) => {
     let sql = 'SELECT * FROM blogs WHERE 1=1 ';
     if (author && author !== '') {
-        sql += `author=${author} `
+        sql += `AND author='${author}' `
     }
     if (keyword && keyword !== '') {
-        sql += `author=${keyword} `
+        sql += `AND title LIKE '%${keyword}%' `
     }
     sql += "ORDER BY createtime DESC";
-
+    console.log(sql);
     return exec(sql);
 };
 const getDetail = (id) => {
     if (!id) {
         return new ErrorModel('id required')
     }
-    return new SuccessModel({
-        id,
-        title: "标题一",
-        content: "aaaaaa",
-        author: "zhangsan",
-        createTime: 1569160326363
+    let sql = `SELECT * FROM blogs WHERE id='${id}'`;
+    return exec(sql).then(res => {
+        return res[0] || {}
     })
 };
 
@@ -31,8 +28,10 @@ const blogNew = (data = {}) => {
         return new ErrorModel('信息提供不完整');
     }
     let createTime = new Date().getTime();
-    let sql = `INSERT INTO blogs(title,content,author,createtime) values('${data.title}','${data.content}','${data.author}','${createTime}')`;
-    return exec(sql);
+    let sql = `INSERT INTO blogs(title,content,author,createtime) VALUES('${data.title}','${data.content}','${data.author}','${createTime}')`;
+    return exec(sql).then(res => {
+        return res.insertId
+    });
 };
 const blogUpdate = (data = {}) => {
     let sql = `UPDATE blogs SET `, updateFieId = [];
@@ -43,13 +42,17 @@ const blogUpdate = (data = {}) => {
     if (data.content && data.content !== '') {
         updateFieId.push(`content='${data.content}'`)
     }
-    sql += updateFieId.join()+' ';
+    sql += updateFieId.join() + ' ';
     sql += `WHERE id='${data.id}'`;
-    return exec(sql)
+    return exec(sql).then(res => {
+        return res.affectedRows > 0
+    })
 };
-const blogDel = (data = {}) => {
-    let sql = `DELETE FROM blogs WHERE id=${data.id}`;
-    return exec(sql);
+const blogDel = (data = {}, author) => {
+    let sql = `DELETE FROM blogs WHERE id=${data.id} and author='${author}'`;
+    return exec(sql).then(res => {
+        return res.affectedRows > 0
+    });
 };
 
 module.exports = {

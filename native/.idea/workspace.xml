@@ -2,21 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4407dba0-fbd1-4e20-9a04-58e2e02114ae" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Administrator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/conf/db.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/db/mysql.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sql/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sql/.idea/sql.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sql/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sql/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/blog.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/blog.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/user.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routers/blog.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/blog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/user.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +31,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="8.11.1" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="F:/service/audio" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="configurable.group.build" />
   </component>
@@ -91,7 +82,8 @@
       <workItem from="1569154074716" duration="5315000" />
       <workItem from="1569201796577" duration="12443000" />
       <workItem from="1569324175624" duration="14000" />
-      <workItem from="1569408795666" duration="15730000" />
+      <workItem from="1569408795666" duration="16409000" />
+      <workItem from="1569546850213" duration="18553000" />
     </task>
     <servers />
   </component>

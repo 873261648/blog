@@ -34,7 +34,10 @@ const app = (req, res) => {
         req.body = postData;
         let userData = handlerUserRouter(req, res);
         if (userData) {
-            res.end(JSON.stringify(userData))
+            userData.then(result => {
+                res.end(JSON.stringify(result))
+            });
+            return;
         }
         let blogData = handlerBlogRouter(req, res);
         if (blogData) {
