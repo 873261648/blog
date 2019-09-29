@@ -28,6 +28,9 @@ const app = (req, res) => {
     // 获取url
     req.router = req.url.split("?")[0];
     console.log(req.method + " " + req.router);
+    // 获取和解析cookie
+    console.log(req.headers.cookie);
+
     // 获取get请求参数
     req.query = querystring.parse(req.url.split('?')[1]);
     getPostData(req).then(postData => {
