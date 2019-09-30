@@ -28,13 +28,24 @@ const app = (req, res) => {
     // 获取url
     req.router = req.url.split("?")[0];
     console.log(req.method + " " + req.router);
-    // 获取和解析cookie
-    console.log(req.headers.cookie);
 
     // 获取get请求参数
     req.query = querystring.parse(req.url.split('?')[1]);
+
+
+    // 获取和解析cookie
+    req.cookie = {};
+    let cookieStr = req.headers.cookie || '';
+    cookieStr.split(';').map(item => {
+        if (item.indexOf('=') !== -1) {
+            let key = item.split('=')[0].trim();
+            req.cookie[key] = item.split('=')[1].trim();
+        }
+    });
+
     getPostData(req).then(postData => {
         req.body = postData;
+
         let userData = handlerUserRouter(req, res);
         if (userData) {
             userData.then(result => {
