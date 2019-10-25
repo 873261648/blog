@@ -5,8 +5,8 @@ const handlerUserRouter = function (req, res) {
     if (req.method === "GET" && req.router === "/api/user/login") {
         return login(req.query).then(result => {
             if (result) {
-                // 服务端设置cookie并添加httpOnly禁止客户端修改
-                res.setHeader('Set-Cookie', `userName=${result.username};path=/;httpOnly`);
+                req.session.username = result.username;
+                req.session.realname = result.realname;
                 return new SuccessModel(result)
             }
             return new ErrorModel('用户名或密码错误！')
