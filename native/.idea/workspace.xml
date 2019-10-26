@@ -2,10 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4407dba0-fbd1-4e20-9a04-58e2e02114ae" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../html/.idea/html.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../html/admin.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../html/author.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../html/details.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../html/js/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../html/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/db/redis.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/www.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/www.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/conf/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/conf/db.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/user.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,7 +44,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="8.11.1" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../html" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="settings.nodejs" />
   </component>
@@ -90,7 +98,9 @@
       <workItem from="1569408795666" duration="16409000" />
       <workItem from="1569546850213" duration="18553000" />
       <workItem from="1569754469389" duration="12704000" />
-      <workItem from="1571996653514" duration="5046000" />
+      <workItem from="1571996653514" duration="5242000" />
+      <workItem from="1572055688651" duration="11942000" />
+      <workItem from="1572077772737" duration="3945000" />
     </task>
     <servers />
   </component>

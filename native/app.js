@@ -1,7 +1,9 @@
 const querystring = require('querystring'),
     handlerUserRouter = require("./src/routers/user"),
-    handlerBlogRouter = require("./src/routers/blog");
-const SESSION_DATA = {};
+    handlerBlogRouter = require("./src/routers/blog"),
+    {redisGet, redisSet} = require("./src/db/redis");
+
+
 const getPostData = (req) => {
     let postData = '';
     return new Promise((resolve) => {
@@ -44,50 +46,61 @@ const app = (req, res) => {
     });
 
     // 解析session
-    let sessionID = req.cookie.sessionID,
-        // 登录成功后再把sessionID返回回去
-        needSetCookie = true;
-    if (sessionID) {
-        if (!SESSION_DATA[sessionID]) {
-            SESSION_DATA[sessionID] = {};
-            needSetCookie = false;
-        }
-    } else {
-        sessionID = new Date().getTime() + Math.random() + "";
-        SESSION_DATA[sessionID] = {};
+    let userID = req.cookie.userID,
+        // 登录成功后再把userID返回回去
         needSetCookie = false;
+    // if (userID) {
+    //     if (!SESSION_DATA[userID]) {
+    //         SESSION_DATA[userID] = {};
+    //     }
+    // } else {
+    //     userID = new Date().getTime() + Math.random() + "";
+    //     SESSION_DATA[userID] = {};
+    //     needSetCookie = true;
+    // }
+
+    if (!userID) {
+        userID = new Date().getTime() + Math.random() + "";
+        redisSet(userID, {});
+        needSetCookie = true;
     }
-    req.session = SESSION_DATA[sessionID];
-
-    console.log(req.session)
-
-
-    getPostData(req).then(postData => {
-        req.body = postData;
-
-        let userData = handlerUserRouter(req, res);
-        if (userData) {
-            userData.then(result => {
-                if (needSetCookie) {
-                    // 服务端设置cookie并添加httpOnly禁止客户端修改
-                    res.setHeader('Set-Cookie', `sessionID=${sessionID};path=/;httpOnly`);
-                }
-                res.end(JSON.stringify(result))
-            });
-            return;
+    redisGet(userID).then(res => {
+        if (res === null) {
+            redisSet(userID, {});
+            req.session = {};
+        } else {
+            req.session = res;
         }
-        let blogData = handlerBlogRouter(req, res);
-        if (blogData) {
-            blogData.then(result => {
-                if (needSetCookie) {
-                    res.setHeader('Set-Cookie', `sessionID=${sessionID};path=/;httpOnly`);
-                }
-                res.end(JSON.stringify(result))
-            });
-            return;
-        }
-        res.end(JSON.stringify({message: 404}))
-    });
+
+        return getPostData(req)
+    })
+        .then(postData => {
+            req.body = postData;
+
+            let userData = handlerUserRouter(req, res);
+            if (userData) {
+                userData.then(result => {
+                    if (needSetCookie) {
+                        // 服务端设置cookie并添加httpOnly禁止客户端修改
+                        res.setHeader('Set-Cookie', `userID=${userID};path=/;httpOnly`);
+                    }
+                    res.end(JSON.stringify(result))
+                });
+                return;
+            }
+            let blogData = handlerBlogRouter(req, res);
+            if (blogData) {
+                blogData.then(result => {
+                    if (needSetCookie) {
+                        res.setHeader('Set-Cookie', `userID=${userID};path=/;httpOnly`);
+                    }
+                    res.end(JSON.stringify(result))
+                });
+                return;
+            }
+            res.end(JSON.stringify({message: 404}))
+        });
+
 };
 
 module.exports = app;
