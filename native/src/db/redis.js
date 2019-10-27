@@ -34,7 +34,17 @@ function redisSet(key, val) {
     redisClient.set(key, val)
 }
 
+function redisDel(key) {
+    redisClient.del(key);
+    console.log(key);
+    redisGet(key).then(val => {
+        console.log(val)
+    })
+
+}
+
 module.exports = {
     redisGet,
-    redisSet
+    redisSet,
+    redisDel
 };

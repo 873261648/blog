@@ -2,9 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title></title>
+    <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
-
+<header></header>
+<h2 class="title"></h2>
+<p>
+    <a class="author" href="javascript:;"></a>
+    <span class="time"></span>
+</p>
+<div class="content"></div>
 </body>
 </html>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/app.js"></script>
+<script>
+    getDetails();
+
+    function getDetails() {
+        const params = getUrlParams();
+        if (!params.id) {
+            document.write('失效的文章');
+            return;
+        }
+        $.ajax({
+            url: "/api/blog/detail",
+            data: {
+                id: Number(params.id)
+            },
+            success(res) {
+                if (!res.result.id) {
+                    document.write('失效的文章');
+                    return;
+                }
+                $(".title").html(res.result.title);
+                $("title").html(res.result.title);
+                $(".author").html(res.result.author).attr('href', `author.html?author=${res.result.author}`);
+                $(".time").html(timeStampStr(res.result.createtime));
+                $(".content").html(res.result.content);
+            }
+        })
+    }
+</script>

@@ -24,14 +24,17 @@
     $.ajax({
         url: "/api/blog/list",
         success(res) {
+            if (!res.result.length) {
+                $("#list").html('无更多内容');
+                return;
+            }
             let str = "";
-
             res.result.map(item => {
                 str += `
                 <li>
                     <a class="title" href='details.html?id=${item.id}'>${item.title}</a>
                     <p>
-                        <a class="author" href='author.html?id=${item.author}'>${item.author}</a>
+                        <a class="author" href='author.html?author=${item.author}'>${item.author}</a>
                         <span class="time">${timeStampStr(item.createtime)}</span>
                     </p>
                 </li>`
@@ -39,10 +42,4 @@
             $("#list").html(str);
         }
     });
-    let userInfo = sessionStorage.getItem('userInfo');
-    if (userInfo) {
-        $("header").append($(`<a id="user_name" href="admin.html">欢迎你：${userInfo.userName}</a>`));
-    } else {
-        $("header").append($(`<a href="login.html">登录</a>`));
-    }
 </script>

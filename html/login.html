@@ -37,7 +37,8 @@
                     alert(res.message);
                     return;
                 }
-                sessionStorage.setItem('userInfo', res.result)
+                sessionStorage.setItem('userInfo', JSON.stringify(res.result));
+                location.href = "/"
             }
         })
     }

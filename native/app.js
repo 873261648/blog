@@ -23,7 +23,12 @@ const getPostData = (req) => {
         });
     });
 };
-
+// 获取 cookie 的过期时间
+const getCookieExpires = () => {
+    const d = new Date();
+    d.setTime(d.getTime() + (24 * 60 * 60 * 1000));
+    return d.toGMTString();
+}
 
 const app = (req, res) => {
     // 设置返回格式为application/json
@@ -92,7 +97,8 @@ const app = (req, res) => {
             if (blogData) {
                 blogData.then(result => {
                     if (needSetCookie) {
-                        res.setHeader('Set-Cookie', `userID=${userID};path=/;httpOnly`);
+                        res.setHeader('Set-Cookie', `userID=${userID}; path=/; httpOnly; expires=${getCookieExpires()}`);
+                        console.log(`userID=${userID}; path=/; httpOnly; expires=${getCookieExpires()}`)
                     }
                     res.end(JSON.stringify(result))
                 });

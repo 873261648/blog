@@ -2,9 +2,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title></title>
+    <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
-
+<header></header>
+<h2 class="title"></h2>
+<ul id="list"></ul>
 </body>
 </html>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/app.js"></script>
+<script>
+    getDetails();
+
+    function getDetails() {
+        const params = getUrlParams();
+        console.log(params);
+        if (!params.author) {
+            document.write('查无此人');
+            return;
+        }
+        $(".title").html(`${params.author}的主页`);
+        $("title").html(`${params.author}的主页`);
+        $.ajax({
+            url: "/api/blog/list",
+            data: {
+                author: params.author
+            },
+            success(res) {
+                if(!res.result.length){
+                    $("#list").html('无更多内容');
+                    return;
+                }
+                let str = "";
+                res.result.map(item => {
+                    str += `
+                <li>
+                    <a class="title" href='details.html?id=${item.id}'>${item.title}</a>
+                    <p>
+                        <a class="author" href='author.html?author=${item.author}'>${item.author}</a>
+                        <span class="time">${timeStampStr(item.createtime)}</span>
+                    </p>
+                </li>`
+                });
+                $("#list").html(str);
+            }
+        })
+    }
+</script>

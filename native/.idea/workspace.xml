@@ -2,18 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4407dba0-fbd1-4e20-9a04-58e2e02114ae" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../html/.idea/html.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../html/admin.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../html/author.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../html/details.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../html/js/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../html/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/db/redis.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../html/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../html/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/../html/admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../html/author.html" beforeDir="false" afterPath="$PROJECT_DIR$/../html/author.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../html/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/../html/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../html/details.html" beforeDir="false" afterPath="$PROJECT_DIR$/../html/details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../html/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../html/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../html/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../html/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/../html/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/conf/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/conf/db.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dump.rdb" beforeDir="false" afterPath="$PROJECT_DIR$/dump.rdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/blog.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/blog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/redis.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/redis.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routers/blog.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/blog.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/user.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -101,6 +104,7 @@
       <workItem from="1571996653514" duration="5242000" />
       <workItem from="1572055688651" duration="11942000" />
       <workItem from="1572077772737" duration="3945000" />
+      <workItem from="1572144082478" duration="11304000" />
     </task>
     <servers />
   </component>

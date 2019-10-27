@@ -1,6 +1,8 @@
 let {SuccessModel, ErrorModel} = require("../model/resModel");
 let exec = require('../db/mysql');
 
+
+
 const getList = (author, keyword) => {
     let sql = 'SELECT * FROM blogs WHERE 1=1 ';
     if (author && author !== '') {
@@ -24,7 +26,7 @@ const getDetail = (id) => {
 };
 
 const blogNew = (data = {}) => {
-    if (!data.title || !data.content || !data.author) {
+    if (!data.title || !data.content) {
         return new ErrorModel('信息提供不完整');
     }
     let createTime = new Date().getTime();

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .content {
+            width: 600px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+<header></header>
+<div>
+    <span>标题：</span>
+    <input class="title" type="text">
+</div>
+<div>
+    <span>内容：</span>
+    <textarea class="content"></textarea>
+</div>
+<button onclick="save()">保存</button>
+</body>
+</html>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/app.js"></script>
+<script>
+    const params = getUrlParams();
+    if (params.id) {
+        getDetails();
+    }
+
+    function getDetails() {
+        $.ajax({
+            url: "/api/blog/detail",
+            data: {
+                id: Number(params.id)
+            },
+            success(res) {
+                if (!res.result.id) {
+                    return;
+                }
+                $(".title").val(res.result.title);
+                $(".content").val(res.result.content);
+            }
+        })
+    }
+
+    function save() {
+        let url,
+            data,
+            title = $(".title").val(),
+            content = $('.content').val();
+        if (title === "" || content === "") {
+            alert('参数未提供完整！');
+            return
+        }
+
+        if (params.id) {
+            url = "/api/blog/update";
+            data = JSON.stringify({
+                id: params.id,
+                title,
+                content
+            })
+        } else {
+            url = "/api/blog/new";
+            data = JSON.stringify({
+                title,
+                content
+            })
+        }
+        $.ajax({
+            method: "POST",
+            url,
+            data,
+            contentType: "application/json",
+            success(res) {
+                if (res.errno) {
+                    alert('失败');
+                }else{
+                    alert('成功');
+                    location.href = '/admin.html'
+                }
+            }
+        })
+    }
+</script>

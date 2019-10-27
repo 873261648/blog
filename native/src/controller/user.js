@@ -7,6 +7,7 @@ const login = ({userName, password}) => {
         return result[0]
     })
 };
+
 module.exports = {
     login
 };
