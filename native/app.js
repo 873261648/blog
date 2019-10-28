@@ -1,11 +1,12 @@
 const querystring = require('querystring'),
     handlerUserRouter = require("./src/routers/user"),
     handlerBlogRouter = require("./src/routers/blog"),
-    {redisGet, redisSet} = require("./src/db/redis");
+    {redisGet, redisSet} = require("./src/db/redis"),
+    {access} = require('./src/units/log');
 
 
 const getPostData = (req) => {
-    let postData = '';
+    let postData = "";
     return new Promise((resolve) => {
         if (req.method !== "POST") {
             resolve({});
@@ -36,6 +37,7 @@ const app = (req, res) => {
     // 获取url
     req.router = req.url.split("?")[0];
 
+
     // 获取get请求参数
     req.query = querystring.parse(req.url.split('?')[1]);
 
@@ -63,6 +65,9 @@ const app = (req, res) => {
     //     SESSION_DATA[userID] = {};
     //     needSetCookie = true;
     // }
+
+    // 记录访问日志
+    access(`${req.method} -- ${req.router} -- ${req.headers["user-agent"]} -- ${Date.now()}`);
 
     if (!userID) {
         userID = new Date().getTime() + Math.random() + "";
@@ -98,7 +103,6 @@ const app = (req, res) => {
                 blogData.then(result => {
                     if (needSetCookie) {
                         res.setHeader('Set-Cookie', `userID=${userID}; path=/; httpOnly; expires=${getCookieExpires()}`);
-                        console.log(`userID=${userID}; path=/; httpOnly; expires=${getCookieExpires()}`)
                     }
                     res.end(JSON.stringify(result))
                 });
@@ -106,7 +110,6 @@ const app = (req, res) => {
             }
             res.end(JSON.stringify({message: 404}))
         });
-
 };
 
 module.exports = app;
