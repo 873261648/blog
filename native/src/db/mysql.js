@@ -17,4 +17,7 @@ function exec(sql) {
     });
 }
 
-module.exports = exec;
+module.exports = {
+    exec,
+    escape: mysql.escape   // mysql 自带的防止sql注入的方法
+};

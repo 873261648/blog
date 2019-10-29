@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4407dba0-fbd1-4e20-9a04-58e2e02114ae" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/logs/access.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/logs/error.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/logs/event.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/units/log.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/units/readLine.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/units/encryp.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dump.rdb" beforeDir="false" afterPath="$PROJECT_DIR$/dump.rdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/blog.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/blog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/mysql.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/mysql.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logs/access.log" beforeDir="false" afterPath="$PROJECT_DIR$/src/logs/access.log" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,7 +39,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="8.11.1" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../html" />
+    <property name="last_opened_file_path" value="F:/service/internetOfThingsCard" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="settings.nodejs" />
   </component>
@@ -64,6 +64,16 @@
     <configuration name="readLine.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/units/readLine.js" working-dir="$PROJECT_DIR$/src/units">
       <method v="2" />
     </configuration>
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -76,8 +86,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Node.js.readLine.js" />
         <item itemvalue="npm.dev" />
+        <item itemvalue="npm.build" />
+        <item itemvalue="Node.js.readLine.js" />
       </list>
     </recent_temporary>
   </component>
@@ -101,7 +112,8 @@
       <workItem from="1572055688651" duration="11942000" />
       <workItem from="1572077772737" duration="3945000" />
       <workItem from="1572144082478" duration="15405000" />
-      <workItem from="1572243563486" duration="5334000" />
+      <workItem from="1572243563486" duration="7129000" />
+      <workItem from="1572312306815" duration="3468000" />
     </task>
     <servers />
   </component>
