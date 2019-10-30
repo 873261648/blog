@@ -1,13 +1,13 @@
 let {SuccessModel, ErrorModel} = require("../model/resModel");
-let exec = require('../db/mysql');
+let {exec, escape} = require('../db/mysql');
 
 const getList = (author, keyword) => {
     let sql = 'SELECT * FROM blogs WHERE 1=1 ';
     if (author && author !== '') {
-        sql += `AND author='${author}' `
+        sql += `AND author=${escape(author)} `
     }
     if (keyword && keyword !== '') {
-        sql += `AND title LIKE '%${keyword}%' `
+        sql += `AND title LIKE %${escape(keyword)}% `
     }
     sql += "ORDER BY createtime DESC";
     console.log(sql);
@@ -24,11 +24,14 @@ const getDetail = (id) => {
 };
 
 const blogNew = (data = {}) => {
-    if (!data.title || !data.content || !data.author) {
+    if (!data.title || !data.content) {
         return new ErrorModel('信息提供不完整');
     }
     let createTime = new Date().getTime();
-    let sql = `INSERT INTO blogs(title,content,author,createtime) VALUES('${data.title}','${data.content}','${data.author}','${createTime}')`;
+    data.title = escape(data.title);
+    data.content = escape(data.content);
+
+    let sql = `INSERT INTO blogs(title,content,author,createtime) VALUES(${escape(data.title)},${data.content},'${data.author}','${createTime}')`;
     return exec(sql).then(res => {
         return res.insertId
     });
@@ -37,10 +40,12 @@ const blogUpdate = (data = {}) => {
     let sql = `UPDATE blogs SET `, updateFieId = [];
 
     if (data.title && data.title !== '') {
-        updateFieId.push(`title='${data.title}'`)
+        data.title = escape(data.title);
+        updateFieId.push(`title=${data.title}`)
     }
     if (data.content && data.content !== '') {
-        updateFieId.push(`content='${data.content}'`)
+        data.content = escape(data.content);
+        updateFieId.push(`content=${data.content}`)
     }
     sql += updateFieId.join() + ' ';
     sql += `WHERE id='${data.id}'`;

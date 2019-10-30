@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+<header></header>
+<h2 class="title"></h2>
+<a href="edit.html">新建文章</a>
+<ul id="list"></ul>
+</body>
+</html>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/app.js"></script>
+<script>
+    init();
+
+    function init() {
+        const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+
+        if (!userInfo.username) {
+            alert('未登录!');
+            location.href = '/';
+            return;
+        }
+        $(".title").html(`${userInfo.realname}的主页`);
+        $("title").html(`${userInfo.realname}的主页`);
+        $.ajax({
+            url: "/api/blog/list",
+            data: {
+                author: userInfo.username
+            },
+            success(res) {
+                if (!res.result.length) {
+                    $("#list").html('无更多内容');
+                    return;
+                }
+                let str = "";
+                res.result.map((item, index) => {
+                    str += `
+                <li>
+                    <a class="title" href='details.html?id=${item.id}'>${item.title}</a>
+                    <p>
+                        <a class="author" href='author.html?author=${item.author}'>${item.author}</a>
+                        <span class="time">${timeStampStr(item.createtime)}</span>
+                    </p>
+                    <p><button onclick="del(${item.id},${index})">删除</button><button onclick="edit(${item.id})">编辑</button></p>
+                </li>`
+                });
+                $("#list").html(str);
+            }
+        })
+    }
+
+    function del(id, index) {
+        $.ajax({
+            method: "POST",
+            url: "/api/blog/del",
+            contentType: "application/json",
+            data: JSON.stringify({id}),
+            success(res) {
+                if (res.errno === 0) {
+                    $("#list li").eq(index).remove();
+                } else {
+                    alert('删除失败')
+                }
+            }
+        });
+    }
+
+    function edit(id) {
+        location.href = `edit.html?id=${id}`
+    }
+</script>
