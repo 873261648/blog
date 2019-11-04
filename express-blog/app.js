@@ -7,6 +7,9 @@ let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
+let html = require('./routes/html');
+let blogRouter = require('./routes/blog');
+let userRouter = require('./routes/user');
 
 let app = express();
 
@@ -25,9 +28,16 @@ app.use(cookieParser());
 // 配置静态资源目录
 app.use(express.static(path.join(__dirname, 'public')));
 
+// 返回html页面
+app.use(html);
+
+
 // 注册路由
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+app.use("/api/blog", blogRouter);
+app.use("/api/user", userRouter);
 
 // 处理404页面
 app.use(function (req, res, next) {

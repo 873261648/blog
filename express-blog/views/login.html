@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>
+    <span>用户名：</span>
+    <input id="user" type="text">
+</p>
+<p>
+    <span>密码：</span>
+    <input id="password" type="text">
+</p>
+<button onclick="login()">登录</button>
+</body>
+</html>
+<script src="./js/jquery.min.js"></script>
+<script>
+    function login() {
+
+        if ($("#user").val() === "" || $("#password").val() === "") {
+            alert("未输入用户名或密码");
+            return;
+        }
+        $.ajax({
+            method: "POST",
+            url: "/api/user/login",
+            contentType: "application/json",
+            data: JSON.stringify({
+                userName: $("#user").val(),
+                password: $("#password").val()
+            }),
+            success(res) {
+                if (res.errno === -1) {
+                    alert(res.message);
+                    return;
+                }
+                sessionStorage.setItem('userInfo', JSON.stringify(res.result));
+                location.href = "/"
+            }
+        })
+    }
+</script>

@@ -1,0 +1,167 @@
+html {
+    font-size: 125%;
+}
+
+body {
+    font-family: Microsoft Yahei, Arial, Helvetica, sans-serif !important;
+    color: #555;
+    line-height: 24px !important;
+    font-size: 14px;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body, div, ul, ol, li, form, p, input, fieldset, h1, h2, h3, h4, h5, h6, dl, dt, dd {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box
+}
+
+fieldset, img {
+    border: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    vertical-align: bottom;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.fw300 {
+    font-weight: 300
+}
+
+.fw500 {
+    font-weight: 500
+}
+
+.fw800 {
+    font-weight: 800
+}
+
+.suojin {
+    text-indent: 2em;
+}
+
+.max_1200 {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.max_600 {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.w100 {
+    width: 100%;
+}
+
+.w1200 {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.dis_block {
+    display: block
+}
+
+.dis_inblock {
+    display: inline-block;
+}
+
+.hide {
+    display: none;
+}
+
+.overfl_hidd {
+    overflow: hidden;
+}
+
+.text_center {
+    text-align: center;
+}
+
+.text_right {
+    text-align: right;
+}
+
+.none {
+    display: none;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.clearfloat:after {
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+    height: 0
+}
+
+.clearfloat {
+    zoom: 1
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+header > * + * {
+    margin-left: 10px;
+}
+
+#list {
+    padding: 10px
+}
+
+#list li {
+    padding: 10px;
+}
+
+#list li + li {
+    line-height: 2.5em;
+    border-top: 1px solid #ccc;
+}
+
+#list li .title {
+    font-size: 18px;
+    color: #333;
+}
+
+#list li .author {
+    color: #333;
+}
+
+#list li .time {
+    color: #999;
+}
