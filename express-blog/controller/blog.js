@@ -8,13 +8,10 @@ function getList(keyword, author) {
         sql += ` AND author=${author}`
     }
     if (keyword) {
-        // keyword = escape(keyword);
-        sql += ` AND title LIKE '%${keyword}%'`
+        keyword = escape(`%${keyword}%`);
+        sql += ` AND title LIKE ${keyword}`
     }
     sql += ' ORDER BY createtime DESC';
-
-    console.log(sql)
-
     return exce(sql)
 }
 
