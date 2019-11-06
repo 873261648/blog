@@ -17,8 +17,8 @@ function loginCheck(req) {
 }
 
 const handlerBlogRouter = function (req, res) {
-    if (req.method === "GET" && req.router === "/api/blog/list") {
-        let author = req.query.author || "";
+    if (req.method === "GET" && req.router === "/api/blog/list")
+        let author = req.query.author || "";{
         let keyword = req.query.keyword || "";
         let listData = getList(author, keyword);
         return listData.then(result => {

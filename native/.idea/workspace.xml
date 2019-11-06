@@ -2,30 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4407dba0-fbd1-4e20-9a04-58e2e02114ae" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../express-blog/conf/db.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../express-blog/controller/blog.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../express-blog/db/mysql.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../express-blog/model/resModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../express-blog/public/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../express-blog/public/js/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../express-blog/public/js/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../express-blog/routes/blog.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../express-blog/routes/html.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../express-blog/routes/user.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../express-blog/views/admin.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../express-blog/views/author.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../express-blog/views/details.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../express-blog/views/edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../express-blog/views/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../express-blog/views/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../express-blog/db/redis.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../express-blog/logs/access.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../express-blog/middleWare/loginCheck.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../express-blog/units/encryp.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../express-blog/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../express-blog/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../express-blog/controller/blog.js" beforeDir="false" afterPath="$PROJECT_DIR$/../express-blog/controller/blog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../express-blog/controller/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/../express-blog/controller/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../express-blog/model/resModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/../express-blog/model/resModel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../express-blog/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../express-blog/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../express-blog/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../express-blog/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../express-blog/public/stylesheets/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../express-blog/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../express-blog/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../express-blog/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/../express-blog/routes/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../express-blog/views/layout.pug" beforeDir="false" afterPath="$PROJECT_DIR$/../express-blog/views/layout.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../express-blog/routes/blog.js" beforeDir="false" afterPath="$PROJECT_DIR$/../express-blog/routes/blog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../express-blog/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/../express-blog/routes/user.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routers/blog.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/blog.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -132,6 +122,8 @@
       <workItem from="1572312306815" duration="3929000" />
       <workItem from="1572851671816" duration="1054000" />
       <workItem from="1572853550974" duration="4238000" />
+      <workItem from="1573024020178" duration="37000" />
+      <workItem from="1573028526329" duration="35000" />
     </task>
     <servers />
   </component>

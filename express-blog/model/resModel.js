@@ -13,23 +13,31 @@ class BaseModel {
         }
     }
 }
-
+// 成功返回
 class SuccessModel extends BaseModel {
     constructor(data, message) {
         super(data, message);
         this.errno = 0;
     }
 }
-
+// 失败
 class ErrorModel extends BaseModel {
     constructor(data, message) {
         super(data, message);
         this.errno = -1;
     }
 }
+// 会话失效
+class sessionInvalidModel extends BaseModel {
+    constructor(data, message) {
+        super(data, message);
+        this.errno = -2;
+    }
+}
 
 
 module.exports = {
     SuccessModel,
-    ErrorModel
+    ErrorModel,
+    sessionInvalidModel
 };

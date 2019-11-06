@@ -1,8 +1,13 @@
 let createError = require('http-errors');
 let express = require('express');
+let fs = require('fs');
 let path = require('path');
 // 解析cookie插件
 let cookieParser = require('cookie-parser');
+
+let expressSession = require('express-session');
+let redisStore = require('connect-redis')(expressSession);
+let {redisClient} = require('./db/redis');
 // 记录日志插件
 let logger = require('morgan');
 let indexRouter = require('./routes/index');
@@ -17,7 +22,31 @@ let app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-app.use(logger('dev'));
+let sessionStore = new redisStore({
+    client: redisClient
+});
+
+app.use(expressSession({
+    // path:"/",                    // 作用域，默认值/
+    // httpOnly:true,               // 客户端不可控 默认值true
+    secret: "HELLO_<>#@SDWIWORD",   // 秘钥
+    maxAge: 1000 * 60 * 24,          // 失效时间，毫秒数
+    store: sessionStore
+}));
+
+// 生产环境将详细信息写入到文件中；
+// 开发环境直接将简略信息打印到控制台；
+if (process.env.NODE_ENV === 'production') {
+    // 传入一个文件写入流；
+    const logWriteStream = fs.createWriteStream(path.join(__dirname, 'logs', 'access.log'), {flags: "a"});
+    app.use(logger('combined', {
+        stream: logWriteStream
+    }));
+} else {
+    app.use(logger('dev'));
+}
+
+
 // 解析POST请求json参数
 app.use(express.json());
 // 解析POST请求application/x-www-form-urlencoded参数

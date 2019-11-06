@@ -18,6 +18,8 @@
     "nodemon": "^1.19.4",
     "pug": "2.0.0-beta11",
     "redis": "^2.8.0",
-    "xss": "^1.0.6"
+    "xss": "^1.0.6",
+    "express-session": "^1.17.0",
+    "connect-redis": "^4.0.3"
   }
 }

@@ -1,4 +1,5 @@
-const {exce, escape} = require('../db/mysql');
+const {exce, escape} = require('../db/mysql'),
+    xss = require('xss');
 
 
 function getList(keyword, author) {
@@ -15,6 +16,36 @@ function getList(keyword, author) {
     return exce(sql)
 }
 
+
+function getDetail(id) {
+    let sql = `SELECT * FROM blogs WHERE id='${id}'`;
+    return exce(sql)
+}
+
+function newBlog(title, content, author) {
+    let createtime = Date.now();
+    title = escape(xss(title));
+    content = escape(xss(content));
+    let sql = `INSERT INTO blogs(title,content,author,createtime) VALUES(${title},${content},'${author}','${createtime}')`;
+    return exce(sql);
+}
+
+function update(title, content, id) {
+    title = escape(xss(title));
+    content = escape(xss(content));
+    let sql = `UPDATE blogs SET title=${title},content=${content} WHERE id='${id}'`;
+    return exce(sql)
+}
+
+function del(id) {
+    let sql = `DELETE FROM blogs WHERE id='${id}'`;
+    return exce(sql);
+}
+
 module.exports = {
-    getList
+    getList,
+    getDetail,
+    newBlog,
+    update,
+    del
 };
