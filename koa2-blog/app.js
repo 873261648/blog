@@ -5,11 +5,16 @@ const json = require('koa-json');
 const onerror = require('koa-onerror');
 const bodyparser = require('koa-bodyparser');
 const logger = require('koa-logger');
-const convert = require('koa-convert');
+const session = require('koa-generic-session');
+const redisStore = require('koa-redis');
+
+const {REDIS_CONF} = require('./conf/db');
 
 const html = require('./units/html');
 const index = require('./routes/index');
 const users = require('./routes/users');
+const user = require('./routes/user');
+const blog = require('./routes/blog');
 
 // error handler
 onerror(app);
@@ -34,12 +39,31 @@ app.use(async (ctx, next) => {
     console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
 });
 
+// 配置session
+app.keys = ['WJiol#23123_'];
+app.use(session({
+    // 配置cookie
+    cookie: {
+        path: "/",
+        httpOnly: true,
+        maxAge: 1000 * 60 * 60 * 24
+    },
+    // 配置redis
+    store: redisStore({
+        all: `${REDIS_CONF.host}:${REDIS_CONF.port}`
+    })
+}));
+
+
 // 返回html页面
 app.use(html());
 
 // routes
-app.use(index.routes(), index.allowedMethods());
-app.use(users.routes(), users.allowedMethods());
+// app.use(index.routes(), index.allowedMethods());
+// app.use(users.routes(), users.allowedMethods());
+app.use(user.routes(), users.allowedMethods());
+app.use(blog.routes(), users.allowedMethods());
+
 
 // error-handling
 app.on('error', (err, ctx) => {
