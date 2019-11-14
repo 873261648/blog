@@ -7,11 +7,6 @@ router.get('/', async (ctx, next) => {
   let fullPath = path.join(__dirname, '../', 'views', 'index.html');
   ctx.response.type = 'html';
   ctx.body = fs.createReadStream(fullPath);
-
-
-  // await ctx.render('index', {
-  //   title: 'Hello Koa 2!'
-  // })
 });
 
 router.get('/string', async (ctx, next) => {

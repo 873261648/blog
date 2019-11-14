@@ -11,12 +11,26 @@ async function getList(keyword, author) {
     if (author) {
         sql += ` AND author='${author}'`;
     }
-    sql+=" ORDER BY createtime DESC";
-
-    // console.log(sql);
+    sql += " ORDER BY createtime DESC";
     return await exec(sql);
-} 
+}
+
+async function detail(id) {
+    let sql = `SELECT * FROM blogs WHERE id=${id}`;
+    let result = await exec(sql);
+    return result[0] || {};
+}
+
+async function newBlog(title, content, author) {
+    let time = Date.now();
+    title = escape(xss(title));
+    content = escape(xss(content));
+    let sql = `INSERT INTO blogs(title,content,author,createtime) VALUES(${title},${content},'${author}','${time}')`;
+    return await exec(sql)
+}
 
 module.exports = {
-    getList
+    getList,
+    detail,
+    newBlog
 };

@@ -10,9 +10,16 @@ router.post('/login', async (ctx, next) => {
     let result = await login(username, password);
     if (result.username) {
         ctx.body = new SuccessModel(result);
+        ctx.session.username = result.username;
+        ctx.session.realname = result.realname;
         return;
     }
     ctx.body = new ErrorModel('用户名或密码错误');
 });
+router.post("/logout", async (ctx, next) => {
+    ctx.session = {};
+    ctx.body = new SuccessModel();
+});
+
 
 module.exports = router;
