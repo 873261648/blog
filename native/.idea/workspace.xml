@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4407dba0-fbd1-4e20-9a04-58e2e02114ae" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../express-blog/db/redis.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../express-blog/logs/access.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../express-blog/middleWare/loginCheck.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../express-blog/units/encryp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../express-blog/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../express-blog/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../express-blog/controller/blog.js" beforeDir="false" afterPath="$PROJECT_DIR$/../express-blog/controller/blog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../express-blog/controller/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/../express-blog/controller/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../express-blog/model/resModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/../express-blog/model/resModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../express-blog/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../express-blog/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../express-blog/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../express-blog/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../express-blog/routes/blog.js" beforeDir="false" afterPath="$PROJECT_DIR$/../express-blog/routes/blog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../express-blog/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/../express-blog/routes/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routers/blog.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/blog.js" afterDir="false" />
-    </list>
+    <list default="true" id="4407dba0-fbd1-4e20-9a04-58e2e02114ae" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,8 +29,8 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="javascript.nodejs.core.library.configured.version" value="8.11.1" />
-    <property name="last_opened_file_path" value="F:/service/website2.0" />
+    <property name="javascript.nodejs.core.library.configured.version" value="10.16.0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../koa2-blog" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="settings.nodejs" />
   </component>
@@ -124,6 +109,7 @@
       <workItem from="1572853550974" duration="4238000" />
       <workItem from="1573024020178" duration="37000" />
       <workItem from="1573028526329" duration="35000" />
+      <workItem from="1573563407258" duration="51000" />
     </task>
     <servers />
   </component>

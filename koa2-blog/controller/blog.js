@@ -15,7 +15,7 @@ async function getList(keyword, author) {
 
     // console.log(sql);
     return await exec(sql);
-}
+} 
 
 module.exports = {
     getList
