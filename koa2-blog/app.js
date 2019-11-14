@@ -11,9 +11,7 @@ const redisStore = require('koa-redis');
 const {REDIS_CONF} = require('./conf/db');
 
 const html = require('./units/html');
-const index = require('./routes/index');
 const users = require('./routes/users');
-const user = require('./routes/user');
 const blog = require('./routes/blog');
 
 // error handler
@@ -28,7 +26,7 @@ app.use(logger());
 app.use(require('koa-static')(__dirname + '/public'));
 
 app.use(views(__dirname + '/views', {
-    extension: 'pug'
+    engineSource:'pug'
 }));
 
 // logger
@@ -56,13 +54,11 @@ app.use(session({
 
 
 // 返回html页面
-app.use(html());
+// app.use(html());
 
 // routes
-// app.use(index.routes(), index.allowedMethods());
-// app.use(users.routes(), users.allowedMethods());
-app.use(user.routes(), users.allowedMethods());
-app.use(blog.routes(), users.allowedMethods());
+app.use(users.routes(), users.allowedMethods());
+app.use(blog.routes(), blog.allowedMethods());
 
 
 // error-handling
