@@ -22,3 +22,7 @@ yarn-error.log*
 *.sln
 *.sw?
 html/.idea/html.iml
+koa2-blog/public/upload/upload_1ea02be2a9e9b09b7df5f391b6857780.txt
+koa2-blog/public/upload/upload_69790b38dec8ef9d2fc682373fc1f2f1.png
+koa2-blog/public/upload/upload_9ff80d977872b43ea091597e0bb56d1e.txt
+koa2-blog/public/upload/upload_d74d39e4cf1cc059af4fe50930e5be2f.png
