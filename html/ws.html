@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="input" type="text">
+<button id="send">发送</button>
+</body>
+</html>
+<script>
+    $ = (el) => (document.querySelector(el));
+
+    const socket = new WebSocket("ws://localhost:3000");
+    socket.onopen = function () {
+        console.log('socket通道打开');
+    };
+    socket.onclose = function () {
+        console.log('socket通道关闭');
+    };
+    socket.onmessage = function (message) {
+        console.log(message)
+    };
+    $('#send').onclick = function () {
+        socket.send(JSON.stringify({
+            cmd: "text",
+            message: $('#input').value
+        }))
+    }
+</script>

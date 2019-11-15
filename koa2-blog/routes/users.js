@@ -16,7 +16,7 @@ router.post('/login', async (ctx, next) => {
     }
     ctx.body = new ErrorModel('用户名或密码错误');
 });
-router.post("/logout", async (ctx, next) => {
+router.get("/logout", async (ctx, next) => {
     ctx.session = {};
     ctx.body = new SuccessModel();
 });

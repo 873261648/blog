@@ -29,8 +29,22 @@ async function newBlog(title, content, author) {
     return await exec(sql)
 }
 
+async function update(id, title, content) {
+    title = escape(xss(title));
+    content = escape(xss(content));
+    let sql = `UPDATE blogs set title=${title},content=${content} WHERE id=${id}`;
+    return await exec(sql);
+}
+
+async function del(id) {
+    let sql = `DELETE FROM blogs WHERE id=${id}`;
+    return await exec(sql);
+}
+
 module.exports = {
     getList,
     detail,
-    newBlog
+    newBlog,
+    update,
+    del
 };

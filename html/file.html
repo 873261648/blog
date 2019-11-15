@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="file" id="file">
+<button id="upload">上传</button>
+</body>
+</html>
+<script src="js/jquery.min.js"></script>
+<script>
+    // $ = (el) => (document.querySelector(el));
+
+    let fileElement = $("#file")[0];
+
+
+    $('#upload').click(() => {
+
+        let fromData = new FormData();
+        fromData.append('file', fileElement.files[0]);
+        $.ajax({
+            url: '/api/file/upload',
+            type: 'POST',
+            data: fromData,
+            cache: false,
+            processData: false,
+            contentType: false
+        });
+    })
+</script>
